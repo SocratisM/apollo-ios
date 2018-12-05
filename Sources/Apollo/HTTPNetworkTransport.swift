@@ -51,11 +51,11 @@ public class HTTPNetworkTransport: NetworkTransport {
   ///
   /// - Parameters:
   ///   - url: The URL of a GraphQL server to connect to.
-  ///   - configuration: A session configuration used to configure the session. Defaults to `URLSessionConfiguration.default`.
+  ///   - session: The pre-initialized URLSession`.
   ///   - sendOperationIdentifiers: Whether to send operation identifiers rather than full operation text, for use with servers that support query persistence. Defaults to false.
-  public init(url: URL, configuration: URLSessionConfiguration = URLSessionConfiguration.default, sendOperationIdentifiers: Bool = false) {
+  public init(url: URL, session: URLSession, sendOperationIdentifiers: Bool = false) {
     self.url = url
-    self.session = URLSession(configuration: configuration)
+    self.session = session
     self.sendOperationIdentifiers = sendOperationIdentifiers
   }
   
